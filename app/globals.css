@@ -18,14 +18,19 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-image: url("../public/whale.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: center;
 }
-
+h1 {
+  font-size: 140px;
+  font-weight: 700;
+  line-height: 140px;
+  letter-spacing: 0em;
+  text-align: left;
+  text-transform: uppercase;
+}
 @layer utilities {
   .text-balance {
     text-wrap: balance;
