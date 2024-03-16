@@ -1,22 +1,14 @@
 "use client";
+import {
+  ClickContext,
+  FirstAnimationComplete,
+  defaultState,
+} from "@/components/ClickContext";
 import Header from "@/components/Header";
 import Main from "@/components/Main";
-import { Dispatch, SetStateAction, createContext, useState } from "react";
+import { useState } from "react";
 
-export const ClickContext = createContext(false);
 
-interface IFirstAnimationContext {
-  isAnimationComplete: boolean;
-  setAminationComplete: Dispatch<SetStateAction<boolean>>;
-}
-
-const defaultState = {
-  isAnimationComplete: false,
-  setAminationComplete: () => {},
-};
-
-export const FirstAnimationComplete =
-  createContext<IFirstAnimationContext>(defaultState);
 
 export default function Home() {
   const [isClicked, setClick] = useState(false);

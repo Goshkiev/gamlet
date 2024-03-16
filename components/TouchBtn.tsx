@@ -1,6 +1,7 @@
-import { ClickContext } from "@/app/page";
+
 import { AnimatePresence, motion } from "framer-motion";
 import { useContext } from "react";
+import { ClickContext } from "./ClickContext";
 
 
 export const TouchBtn = () => {

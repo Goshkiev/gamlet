@@ -2,8 +2,8 @@
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useContext } from "react";
 import { TouchBtn } from "@/components/TouchBtn";
-import { ClickContext, FirstAnimationComplete } from "@/app/page";
 import { MExoticImage } from "./ExoticImage";
+import { ClickContext, FirstAnimationComplete } from "./ClickContext";
 
 const decorElementsAnimation = {
   hidden: {

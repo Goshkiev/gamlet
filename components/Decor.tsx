@@ -1,7 +1,7 @@
-import { ClickContext } from "@/app/page";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { useContext } from "react";
+import { ClickContext } from "./ClickContext";
 
 export const Decor = () => {
   const isClicked = useContext(ClickContext);

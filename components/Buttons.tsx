@@ -1,8 +1,8 @@
-import { FirstAnimationComplete } from "@/app/page";
 import { AnimatePresence, motion } from "framer-motion";
 import { useContext } from "react";
 import Link from "next/link";
 import { MExoticImage } from "./ExoticImage";
+import { FirstAnimationComplete } from "./ClickContext";
 
 export const Buttons = () => {
   const { isAnimationComplete } = useContext(FirstAnimationComplete);

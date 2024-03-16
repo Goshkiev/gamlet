@@ -1,9 +1,9 @@
 import Image from "next/image";
 import { motion, AnimatePresence, useMotionValue } from "framer-motion";
 import { useContext } from "react";
-import { ClickContext, FirstAnimationComplete } from "@/app/page";
 import { MExoticImage } from "./ExoticImage";
 import { useMotionValueEvent } from "framer-motion";
+import { ClickContext, FirstAnimationComplete } from "./ClickContext";
 
 export default function Header() {
   const { isAnimationComplete, setAminationComplete } = useContext(
