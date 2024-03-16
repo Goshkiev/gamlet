@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={univers.className}>{children}</body>
+      <body suppressHydrationWarning={true} className={univers.className}>{children}</body>
     </html>
   );
 }

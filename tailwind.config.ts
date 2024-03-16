@@ -11,7 +11,7 @@ const config: Config = {
       'xl': '1.25rem',
       '3xl': ' 1.7rem',
       '9xl': '6.875rem',
-      '10xl': '10.188rem'
+      '10xl': '10rem'
     },
     extend: {
       backgroundImage: {
@@ -19,6 +19,9 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      colors: {
+        secondPageBg: 'rgba(36, 36, 36, 1)'
+      }
     },
     colors: {
       transparent: 'transparent',
@@ -33,6 +36,7 @@ const config: Config = {
       'light-gray': 'rgba(135, 135, 135, 0.05)',
       'gray': 'rgba(217, 217, 217, 1)',
       'transparent-black': 'rgba(25, 25, 25, 0.8)',
+      'another-gray': 'rgba(225, 225, 225, 1)'
     }
   },
   plugins: [],
