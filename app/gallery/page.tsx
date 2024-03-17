@@ -7,7 +7,7 @@ import LoadMore from "@/components/LoadMore";
 import { MotionDiv } from "@/components/Motion";
 import Image from "next/image";
 import AnimeCard, { AnimeProp } from "@/components/AnimeCard";
-import { fetchAnime } from "../action";
+import { fetchAnime, getPhotos } from "../action";
 import Link from "next/link";
 // import { relative } from "path";
 // interface IProps {
@@ -67,6 +67,8 @@ export default async function Page() {
   // const { viewers } = await getData();
 
   const data = await fetchAnime(1);
+  const photos = await getPhotos();
+  console.log('photos', photos)
   return (
     <main className="bg-secondPageBg flex min-h-screen flex-col items-center">
       <MotionDiv
