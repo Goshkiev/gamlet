@@ -24,3 +24,8 @@ export interface SharedModalProps {
   navigation: boolean;
   direction?: number;
 }
+
+export interface IGetPhotoRes {
+  next_cursor: string;
+  photos: ImageProps[];
+}

@@ -1,6 +1,6 @@
 "use server";
 
-import { ImageProps } from "@/types";
+import { IGetPhotoRes, ImageProps } from "@/types";
 import cloudinary from "@/utils/cloudinary";
 import getBase64ImageUrl from "@/utils/generateBlurPlaceholder";
 
@@ -16,14 +16,14 @@ export async function fetchAnime(page: number) {
   return data;
 }
 
-export async function getPhotos() {
+export async function getPhotos(next_cursor?: string): Promise<IGetPhotoRes> {
   const results = await cloudinary.v2.search
     .expression(`folder:${process.env.CLOUDINARY_FOLDER}/*`)
     .sort_by("public_id", "desc")
-    .max_results(400)
+    .max_results(MAX_LIMIT)
+    .next_cursor(next_cursor)
     .execute();
   let reducedResults: ImageProps[] = [];
-
   let i = 0;
   for (let result of results.resources) {
     reducedResults.push({
@@ -45,5 +45,8 @@ export async function getPhotos() {
     reducedResults[i].blurDataUrl = imagesWithBlurDataUrls[i];
   }
 
-  return reducedResults
+  return {
+    next_cursor: results.next_cursor,
+    photos: reducedResults
+  }
 }

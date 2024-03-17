@@ -1,62 +1,8 @@
-// import React from "react";
-// import { Viewer } from "@/types";
-// 'use client'
-// import { MExoticImage } from "@/components/ExoticImage";
-// import { Viewer } from "@/types";
 import LoadMore from "@/components/LoadMore";
 import { MotionDiv } from "@/components/Motion";
 import Image from "next/image";
-import AnimeCard, { AnimeProp } from "@/components/AnimeCard";
-import { fetchAnime, getPhotos } from "../action";
+import { getPhotos } from "../action";
 import Link from "next/link";
-// import { relative } from "path";
-// interface IProps {
-//   viewers: Viewer[];
-// }
-
-// const Hall = ({ viewers }: IProps) => {
-//   return (
-//     <main className="p-32">
-//       <h1>My Gallery</h1>
-//       <ul>
-//         {viewers.map((viewer) => (
-//           <li key={viewer.id}>
-//             {viewer.name}
-//             {viewer.seatNumber}
-//             {viewer.tableNumber}
-//           </li>
-//         ))}
-//       </ul>
-//     </main>
-//   );
-// };
-
-// export async function getServerSideProps() {
-//   // Fetch data from an API, database, or file system
-//   const res = await fetch("http://localhost:3000/api/viewers");
-//   const viewers = await res.json();
-
-//   return {
-//     props: {
-//       ...viewers,
-//     },
-//   };
-// }
-
-// export default Hall;
-
-// async function getData() {
-//   const res = await fetch("http://localhost:3000/api/viewers");
-//   // The return value is *not* serialized
-//   // You can return Date, Map, Set, etc.
-
-//   if (!res.ok) {
-//     // This will activate the closest `error.js` Error Boundary
-//     throw new Error("Failed to fetch data");
-//   }
-
-//   return res.json();
-// }
 
 const variants = {
   hidden: { opacity: 0 },
@@ -64,11 +10,8 @@ const variants = {
 };
 
 export default async function Page() {
-  // const { viewers } = await getData();
-
-  const data = await fetchAnime(1);
-  const photos = await getPhotos();
-  console.log('photos', photos)
+  const { photos, next_cursor } = await getPhotos();
+  console.log("photos", photos);
   return (
     <main className="bg-secondPageBg flex min-h-screen flex-col items-center">
       <MotionDiv
@@ -111,9 +54,14 @@ export default async function Page() {
             }}
             viewport={{ amount: 0 }}
           >
-             <Link href="/">
+            <Link href="/">
               <Image
-                style={{ width: 180, height: 180,zIndex: 10, position: "relative" }}
+                style={{
+                  width: 180,
+                  height: 180,
+                  zIndex: 10,
+                  position: "relative",
+                }}
                 src="/back.svg"
                 alt="Vercel Logo"
                 width={0}
@@ -153,11 +101,36 @@ export default async function Page() {
 
       <div className="w-full p-32 bg-secondPageBg flex flex-col items-center">
         <section className="w-full grid lg:grid-cols-3 gap-10">
-          {data.map((item: AnimeProp, index: number) => (
-            <AnimeCard key={item.id} anime={item} index={index} />
+          {photos.map(({ id, public_id, format, blurDataUrl }) => (
+            <Link
+              key={public_id}
+              href={`/?photoId=${id}`}
+              as={`/p/${id}`}
+              // ref={id === Number(lastViewedPhoto) ? lastViewedPhotoRef : null}
+              shallow
+              className="after:content group relative mb-5 block w-full cursor-zoom-in after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:shadow-highlight"
+            >
+              <Image
+                alt="Next.js Conf photo"
+                className="transform rounded-lg brightness-90 transition will-change-auto group-hover:brightness-110"
+                style={{ transform: "translate3d(0, 0, 0)" }}
+                placeholder="blur"
+                blurDataURL={blurDataUrl}
+                src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_720/${public_id}.${format}`}
+                width={720}
+                height={480}
+                sizes="(max-width: 640px) 100vw,
+                  (max-width: 1280px) 50vw,
+                  (max-width: 1536px) 33vw,
+                  25vw"
+              />
+            </Link>
           ))}
+          {/* {data.map((item: AnimeProp, index: number) => (
+            <AnimeCard key={item.id} anime={item} index={index} />
+          ))} */}
         </section>
-        <LoadMore />
+        <LoadMore next_cursor={next_cursor} />
       </div>
       {/* <ul>
         {viewers.map((viewer: Viewer) => (
