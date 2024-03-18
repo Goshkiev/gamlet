@@ -4,7 +4,7 @@ import { IGetPhotoRes, ImageProps } from "@/types";
 import cloudinary from "@/utils/cloudinary";
 import getBase64ImageUrl from "@/utils/generateBlurPlaceholder";
 
-const MAX_LIMIT = 12;
+const MAX_LIMIT = 30;
 
 export async function fetchAnime(page: number) {
   const response = await fetch(

@@ -40,7 +40,7 @@ function LoadMore({ next_cursor }: ILoadMore) {
   // col-span-3 -4 картинки
   return (
     <>
-      <section className="w-full grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-10">
+      <section className="columns-1 gap-4 sm:columns-2 xl:columns-3 2xl:columns-3">
         {/* {data.map((item: AnimeProp, index: number) => (
           <AnimeCard key={item.id} anime={item} index={index} />
         ))} */}

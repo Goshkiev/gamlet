@@ -99,8 +99,8 @@ export default async function Page() {
         </div>
       </MotionDiv>
 
-      <div className="w-full p-32 bg-secondPageBg flex flex-col items-center">
-        <section className="w-full grid lg:grid-cols-3 gap-10">
+      <div className="mx-auto max-w-[1960px] p-4">
+        <section className="columns-1 gap-4 sm:columns-2 xl:columns-3 2xl:columns-3">
           {photos.map(({ id, public_id, format, blurDataUrl }) => (
             <Link
               key={public_id}
