@@ -1,52 +1,10 @@
-// import React from "react";
-// import { Viewer } from "@/types";
 "use client";
-// import { MExoticImage } from "@/components/ExoticImage";
-// import { Viewer } from "@/types";
-// import LoadMore from "@/components/LoadMore";
 import { MotionDiv } from "@/components/Motion";
 import Image from "next/image";
-// import AnimeCard, { AnimeProp } from "@/components/AnimeCard";
-// import { fetchAnime } from "../action";
 import Link from "next/link";
 import { Hall } from "@/components/Hall";
 import Search, { SearchProp } from "@/components/Search";
-// import { KeyBrd } from "@/components/KeyBrd";
 import { useState } from "react";
-// interface IProps {
-//   viewers: Viewer[];
-// }
-
-// const Hall = ({ viewers }: IProps) => {
-//   return (
-//     <main className="p-32">
-//       <h1>My Gallery</h1>
-//       <ul>
-//         {viewers.map((viewer) => (
-//           <li key={viewer.id}>
-//             {viewer.name}
-//             {viewer.seatNumber}
-//             {viewer.tableNumber}
-//           </li>
-//         ))}
-//       </ul>
-//     </main>
-//   );
-// };
-
-// export async function getServerSideProps() {
-//   // Fetch data from an API, database, or file system
-//   const res = await fetch("http://localhost:3000/api/viewers");
-//   const viewers = await res.json();
-
-//   return {
-//     props: {
-//       ...viewers,
-//     },
-//   };
-// }
-
-// export default Hall;
 
 async function getData() {
   const res = await fetch("http://localhost:3000/api/viewers");
@@ -67,8 +25,6 @@ const variants = {
 };
 
 export default function Page() {
-  // const { viewers } = await getData();
-  // const data = await fetchAnime(1);
 
   const [selectedOption, setSelectedOption] = useState<SearchProp | null>(null);
 
@@ -76,9 +32,6 @@ export default function Page() {
     <main className="bg-white flex min-h-screen flex-col items-center">
       <MotionDiv
         className="p-32 h-[1500px] w-full bg-white flex flex-col "
-        // variants={{
-        //   visible: { backgroundColor: "white" },
-        // }}
         initial="hidden"
         animate="visible"
         transition={{

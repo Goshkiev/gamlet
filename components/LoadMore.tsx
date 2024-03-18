@@ -2,12 +2,10 @@
 
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
-import { useEffect, useRef, useState } from "react";
-
+import { useEffect, useState } from "react";
 import { getPhotos } from "../app/action";
-import AnimeCard, { AnimeProp } from "./AnimeCard";
 import { ImageProps } from "@/types";
-import Link from "next/link";
+
 interface ILoadMore {
   next_cursor: string;
 }
@@ -36,14 +34,10 @@ function LoadMore({ next_cursor }: ILoadMore) {
       return () => clearTimeout(timeoutId);
     }
   }, [inView, data, isLoading, nextCursor]);
-  // col-span-4 - 3 картинки
-  // col-span-3 -4 картинки
+
   return (
     <>
       <section className="columns-1 gap-4 sm:columns-2 xl:columns-3 2xl:columns-3">
-        {/* {data.map((item: AnimeProp, index: number) => (
-          <AnimeCard key={item.id} anime={item} index={index} />
-        ))} */}
         {data.map(({ id, public_id, format, blurDataUrl }) => (
           <div
             key={public_id}

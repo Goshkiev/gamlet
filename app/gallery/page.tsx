@@ -11,7 +11,6 @@ const variants = {
 
 export default async function Page() {
   const { photos, next_cursor } = await getPhotos();
-  console.log("photos", photos);
   return (
     <main className="bg-secondPageBg flex min-h-screen flex-col items-center">
       <MotionDiv
