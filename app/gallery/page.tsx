@@ -102,12 +102,8 @@ export default async function Page() {
       <div className="mx-auto max-w-[1960px] p-4">
         <section className="columns-1 gap-4 sm:columns-2 xl:columns-3 2xl:columns-3">
           {photos.map(({ id, public_id, format, blurDataUrl }) => (
-            <Link
+            <div
               key={public_id}
-              href={`/?photoId=${id}`}
-              as={`/p/${id}`}
-              // ref={id === Number(lastViewedPhoto) ? lastViewedPhotoRef : null}
-              shallow
               className="after:content group relative mb-5 block w-full cursor-zoom-in after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:shadow-highlight"
             >
               <Image
@@ -124,7 +120,7 @@ export default async function Page() {
                   (max-width: 1536px) 33vw,
                   25vw"
               />
-            </Link>
+            </div>
           ))}
           {/* {data.map((item: AnimeProp, index: number) => (
             <AnimeCard key={item.id} anime={item} index={index} />

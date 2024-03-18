@@ -45,12 +45,8 @@ function LoadMore({ next_cursor }: ILoadMore) {
           <AnimeCard key={item.id} anime={item} index={index} />
         ))} */}
         {data.map(({ id, public_id, format, blurDataUrl }) => (
-          <Link
+          <div
             key={public_id}
-            href={`/?photoId=${id}`}
-            as={`/p/${id}`}
-            // ref={id === Number(lastViewedPhoto) ? lastViewedPhotoRef : null}
-            shallow
             className="after:content group relative mb-5 block w-full cursor-zoom-in after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:shadow-highlight"
           >
             <Image
@@ -67,7 +63,7 @@ function LoadMore({ next_cursor }: ILoadMore) {
                   (max-width: 1536px) 33vw,
                   25vw"
             />
-          </Link>
+          </div>
         ))}
       </section>
       <section className="flex justify-center items-center w-full">
