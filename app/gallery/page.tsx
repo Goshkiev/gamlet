@@ -94,7 +94,16 @@ export default async function Page() {
             <br /> и скачайте фото из зала
             <br /> на свой телефон
           </h3>
-          <div className="h-[400px] w-[400px] bg-white"></div>
+          <div className="h-[400px] w-[400px] bg-white">
+            <Image
+              style={{ width: 400, height: 400 }}
+              src="/QR.png"
+              alt="QR"
+              width={300}
+              height={300}
+              priority
+            />
+          </div>
         </div>
       </MotionDiv>
 
