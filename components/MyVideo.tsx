@@ -1,14 +1,8 @@
 'use client'
 import Video from "next-video";
 import videoLoop from "../videos/part_01 scn_05 web_v2.mp4";
-import { useEffect, useState } from "react";
 
 export const MyVideo = () => {
-  const [count, setCount] = useState(0);
-  // hack
-  useEffect(() => {
-    setCount(1)
-  }, [count, setCount]);
 
   return (
     <Video
@@ -19,7 +13,7 @@ export const MyVideo = () => {
         width: "100vw",
       }}
       src={videoLoop}
-      autoPlay={count === 1}
+      autoPlay={true}
       loop
       playsInline
       preload="auto"
