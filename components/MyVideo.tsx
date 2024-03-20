@@ -14,6 +14,7 @@ export const MyVideo = () => {
       }}
       src={videoLoop}
       autoPlay={true}
+      muted
       loop
       playsInline
       preload="auto"
