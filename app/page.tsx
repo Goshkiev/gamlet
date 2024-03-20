@@ -6,9 +6,8 @@ import {
 } from "@/components/ClickContext";
 import Header from "@/components/Header";
 import Main from "@/components/Main";
+import { MyVideo } from "@/components/MyVideo";
 import { useState } from "react";
-import Video from "next-video";
-import videoLoop from "/videos/part_01 scn_05 web_v2.mp4";
 
 export default function Home() {
   const [isClicked, setClick] = useState(false);
@@ -34,14 +33,7 @@ export default function Home() {
         >
           <Header />
           <Main />
-          <Video
-            style={{position: 'fixed', zIndex: '-1', height: '100vh', width: '100vw'}}
-            src={videoLoop}
-            autoPlay
-            loop
-            playsInline
-            controls={false}
-          ></Video>
+          <MyVideo/>
         </main>
       </FirstAnimationComplete.Provider>
     </ClickContext.Provider>
