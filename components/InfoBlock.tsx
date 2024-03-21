@@ -23,7 +23,7 @@ export const InfoBlock = ({ prefix, title, postfix }: IInfoBlock) => {
         <div className="bg-transparent/15 w-full py-7 px-2.5">
           <div className="flex flex-col">
             <span className="text-3xl">{prefix}</span>
-            <span className="text-9xl uppercase tracking-[-.04em] leading-[96px] text-end">{title}</span>
+            <span className="text-9xl uppercase tracking-[-.04em] leading-[96px] text-center">{title}</span>
             <span className="text-xl">{postfix}</span>
           </div>
         </div>
