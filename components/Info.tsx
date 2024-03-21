@@ -10,7 +10,7 @@ export const Info = () => {
           title="0 фото"
           postfix="Test system"
         />
-        <InfoBlock prefix="МЕСТА" title="251 место" />
+        <InfoBlock prefix="МЕСТА" title="330 мест" />
       </motion.div>
     </>
   );
