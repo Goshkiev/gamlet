@@ -7,7 +7,7 @@ export const Info = () => {
       <motion.div className="flex justify-between center ">
         <InfoBlock
           prefix="ЗАГРУЖЕНО:"
-          title="1200 фото"
+          title="0 фото"
           postfix="Test system"
         />
         <InfoBlock prefix="МЕСТА" title="251 место" />
