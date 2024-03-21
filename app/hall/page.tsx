@@ -115,8 +115,8 @@ export default function Page() {
         />
       </MotionDiv>
 
-      <div className="pb-0 bg-another-gray w-full flex justify-center h-[2340px]">
-        <div className="bg-white relative w-[1656px]">
+      <div className="pb-0 w-full flex justify-center h-[2340px]">
+        <div className="bg-white relative w-full">
           <div className="top-[-350px] absolute">
             <Hall activeTable={selectedOption?.value} />
           </div>
